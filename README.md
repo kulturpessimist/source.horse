@@ -1,13 +1,11 @@
-purr.is
+source.horse
 ===========
 
-website and contents of purr.is
-
-Last update 13.06.2015
+Last update 26.11.2015
 
 Changelog
 =========
 
-13.06.2015
+26.11.2015
 
-* initial release# source.horse
+* initial release source.horse

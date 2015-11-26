@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<title>source.horse</title>
+	<link rel="apple-touch-icon" sizes="57x57" 			href="../img/icons/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" 			href="../img/icons/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" 			href="../img/icons/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" 			href="../img/icons/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" 		href="../img/icons/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" 		href="../img/icons/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" 		href="../img/icons/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" 		href="../img/icons/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" 		href="../img/icons/apple-icon-180x180.png" />
+	<link rel="icon" type="image/png" sizes="192x192"	href="../img/icons/android-icon-192x192.png" />
+	<link rel="icon" type="image/png" sizes="32x32" 	href="../img/icons/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="96x96" 	href="../img/icons/favicon-96x96.png" />
+	<link rel="icon" type="image/png" sizes="16x16" 	href="../img/icons/favicon-16x16.png" />
+	<link rel="icon" type="image/x-icon"				href="../img/icons/favicon.ico" />
+	<meta name="msapplication-TileImage" content="../img/icons/ms-icon-144x144.png" />
+	<meta name="msapplication-TileColor" content="#fac593" />
+	<meta name="theme-color" content="#fac593" />
+	<link rel="manifest" href="../img/icons/manifest.json">
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div class="logo">
+		<div data-offset="0"  class="layer"></div>
+		<div data-offset="5"  class="layer"></div>
+		<div data-offset="10" class="layer"></div>
+		<div data-offset="15" class="layer"></div>
+		<div data-offset="20" class="layer"></div>
+		<div data-offset="25" class="layer"></div>
+		<div data-offset="30" class="layer"></div>
+		<div data-offset="35" class="layer"></div>
+		<div data-offset="40" class="layer"></div>
+		<div data-offset="45" class="layer"></div>
+		<div data-offset="50" class="layer"></div>
+		<div data-offset="55" class="layer"></div>
+		<div data-offset="60" class="layer"></div>
+		<div data-offset="65" class="layer"></div>
+		<div data-offset="70" class="layer"></div>
+		<div data-offset="75" class="layer"></div>
+		<div data-offset="80" class="layer"></div>
+		<div data-offset="85" class="layer"></div>
+		<div data-offset="90" class="layer"></div>
+		<div data-offset="95" class="layer"></div>
+		<div data-offset="100" class="layer"></div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+		var $logo = $('.logo'),
+			$layer = $('div[class*="layer"]');
+
+		$(window).on('mousemove', function(e) {
+			var w = $(window).width(),
+				h = $(window).height(),
+				offsetX = 0.5 - e.pageX / w,
+				offsetY = 0.5 - e.pageY / h,
+				offsetPoster = $logo.data('offset'),
+				transformPoster = 'translateY(' + -offsetX * offsetPoster + 'px) rotateX(' + (-offsetY * offsetPoster) +
+					'deg) rotateY(' + (offsetX * (offsetPoster * 2)) + 'deg)';
+
+			$logo.css('transform', transformPoster);
+			$layer.each(function() {
+				var $this = $(this),
+					offsetLayer = $this.data('offset') || 0,
+					transformLayer = 'translateX(' + offsetX * offsetLayer + 'px) translateY(' + offsetY * offsetLayer + 'px)';
+				$this.css('transform', transformLayer);
+			});
+		});
+	</script>
+
+</body>
+</html>
