@@ -1,77 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<title>source.horse</title>
-	<link rel="apple-touch-icon" sizes="57x57" 			href="../img/icons/apple-icon-57x57.png" />
-	<link rel="apple-touch-icon" sizes="60x60" 			href="../img/icons/apple-icon-60x60.png" />
-	<link rel="apple-touch-icon" sizes="72x72" 			href="../img/icons/apple-icon-72x72.png" />
-	<link rel="apple-touch-icon" sizes="76x76" 			href="../img/icons/apple-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" 		href="../img/icons/apple-icon-114x114.png" />
-	<link rel="apple-touch-icon" sizes="120x120" 		href="../img/icons/apple-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="144x144" 		href="../img/icons/apple-icon-144x144.png" />
-	<link rel="apple-touch-icon" sizes="152x152" 		href="../img/icons/apple-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="180x180" 		href="../img/icons/apple-icon-180x180.png" />
-	<link rel="icon" type="image/png" sizes="192x192"	href="../img/icons/android-icon-192x192.png" />
-	<link rel="icon" type="image/png" sizes="32x32" 	href="../img/icons/favicon-32x32.png" />
-	<link rel="icon" type="image/png" sizes="96x96" 	href="../img/icons/favicon-96x96.png" />
-	<link rel="icon" type="image/png" sizes="16x16" 	href="../img/icons/favicon-16x16.png" />
-	<link rel="icon" type="image/x-icon"				href="../img/icons/favicon.ico" />
-	<meta name="msapplication-TileImage" content="../img/icons/ms-icon-144x144.png" />
-	<meta name="msapplication-TileColor" content="#fac593" />
-	<meta name="theme-color" content="#fac593" />
-	<link rel="manifest" href="../img/icons/manifest.json">
-	<link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-	<div class="logo">
-		<div data-offset="0"  class="layer"></div>
-		<div data-offset="5"  class="layer"></div>
-		<div data-offset="10" class="layer"></div>
-		<div data-offset="15" class="layer"></div>
-		<div data-offset="20" class="layer"></div>
-		<div data-offset="25" class="layer"></div>
-		<div data-offset="30" class="layer"></div>
-		<div data-offset="35" class="layer"></div>
-		<div data-offset="40" class="layer"></div>
-		<div data-offset="45" class="layer"></div>
-		<div data-offset="50" class="layer"></div>
-		<div data-offset="55" class="layer"></div>
-		<div data-offset="60" class="layer"></div>
-		<div data-offset="65" class="layer"></div>
-		<div data-offset="70" class="layer"></div>
-		<div data-offset="75" class="layer"></div>
-		<div data-offset="80" class="layer"></div>
-		<div data-offset="85" class="layer"></div>
-		<div data-offset="90" class="layer"></div>
-		<div data-offset="95" class="layer"></div>
-		<div data-offset="100" class="layer"></div>
-	</div>
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script>
-		var $logo = $('.logo'),
-			$layer = $('div[class*="layer"]');
 
-		$(window).on('mousemove', function(e) {
-			var w = $(window).width(),
-				h = $(window).height(),
-				offsetX = 0.5 - e.pageX / w,
-				offsetY = 0.5 - e.pageY / h,
-				offsetPoster = $logo.data('offset'),
-				transformPoster = 'translateY(' + -offsetX * offsetPoster + 'px) rotateX(' + (-offsetY * offsetPoster) +
-					'deg) rotateY(' + (offsetX * (offsetPoster * 2)) + 'deg)';
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>source.horse</title>
+        <script src="js/webcomponents-bundle.js"></script>
+        <script src="js/css-doodle.min.js"></script>
+        <link rel="stylesheet" type="text/css" media="all" href="font/fonts.css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Mono|IBM+Plex+Mono|Source+Code+Pro|VT323" rel="stylesheet">
 
-			$logo.css('transform', transformPoster);
-			$layer.each(function() {
-				var $this = $(this),
-					offsetLayer = $this.data('offset') || 0,
-					transformLayer = 'translateX(' + offsetX * offsetLayer + 'px) translateY(' + offsetY * offsetLayer + 'px)';
-				$this.css('transform', transformLayer);
-			});
-		});
-	</script>
+        <style>
+            :root {
+                --highlight: #1BF9D8;
+                --lilac: #5900B0;
+                --purple: #3D0078;
+                --dark: #25064C;
+                --black: #15032B;
+            }
 
-</body>
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                font-size: 18px;
+
+            }
+
+            css-doodle {
+                width: 100vmax;
+                height: 100vmax;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            main {
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                z-index: 2;
+                color: orangered;
+                pointer-events: none;
+
+                display: none;
+            }
+
+            section:first-of-type {
+                font-family: 'ZillaSlab-Medium';
+                font-size: 6rem;
+                letter-spacing: -0.4rem;
+            }
+
+            section:last-of-type {
+                font-family: 'ZillaSlabHighlight-Bold';
+                font-size: 6rem;
+                letter-spacing: -0.1rem;
+            }
+
+            pre {
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top: 0px;
+                display: inline;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <css-doodle>
+            :doodle {
+                --font-size: 3rem;
+                --start: 72;
+                @grid: 16;
+                @size: 100vmax;
+                grid-gap: 1px;
+                background: var(--black);
+                font-family: 'VT323', monospace;
+                font-size: 2.5rem;
+            }
+
+            background: var(--dark);
+            :after{
+                content: @index();
+                color: var(--purple);
+            }
+
+
+            /*Logo*/
+            @nth(73) {
+                background: var(--purple); 
+                :after{ 
+                    content: 'S'; 
+                    color: var(--lilac); 
+                    font-size: var(--font-size);
+                } 
+            }
+            @nth(74) {
+                background: var(--purple);
+                :after{
+                    content: 'o';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            } 
+            @nth(75) {
+                background: var(--purple);
+                :after{
+                    content: 'u';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            } 
+            @nth(76) {
+                background: var(--purple);
+                :after{
+                    content: 'r';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            } 
+            @nth(77) {
+                background: var(--purple);
+                :after{
+                    content: 'c';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            } 
+            @nth(78) {
+                background: var(--purple);
+                :after{
+                    content: 'e';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            }
+
+            @nth(89) {
+                background: var(--purple);
+                :after{
+                    content: '.';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            }
+            @nth(90) {
+                background: var(--purple);
+                :after{
+                    content: 'h';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            } 
+            @nth(91) {
+                background: var(--purple);
+                :after{
+                    content: 'o';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            } 
+            @nth(92) {
+                background: var(--purple);
+                :after{
+                    content: 'r';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            }
+            @nth(93) {
+                background: var(--purple);
+                :after{
+                    content: 's';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            }
+            @nth(94) {
+                background: var(--purple);
+                :after{
+                    content: 'e';
+                    color: var(--lilac);
+                    font-size: var(--font-size);
+                }
+            }
+            
+        </css-doodle>
+        <!--   
+:doodle {
+@grid: 20 / 100vmax;
+background: #0a0c27;
+font-family: sans-serif;
+}
+--s: 0.1;
+background: #f0f;
+
+:hover {
+background: white;
+--s:1;
+}
+
+
+transition: .5s cubic-bezier(.175, .885, .32, 1.275);
+transition-delay: @rand(500ms);
+
+transform: scale( @rand(.2, .9) ) rotate( calc( @r(-33deg) * var(--s) ) ) translateY(calc(var(--s) *
+100%));
+
+
+:after {
+content: @pick(
+'abstract', 'arguments', 'await', 'boolean'
+'break', 'byte', 'case', 'catch',
+'char', 'class', 'const', 'continue',
+'debugger', 'default', 'delete', 'do',
+'double', 'else', 'enum', 'eval',
+'export', 'extends', 'false', 'final',
+'finally', 'float', 'for', 'function',
+'goto', 'if', 'implements', 'import',
+'in', 'instanceof', 'int', 'interface',
+'let', 'long', 'native', 'new',
+'null', 'package', 'private', 'protected',
+'public', 'return', 'short', 'static',
+'super', 'switch', 'synchronized', 'this',
+'throw', 'throws', 'transient', 'true',
+'try', 'typeof', 'var', 'void',
+'volatile', 'while', 'with', 'yield',
+'Array', 'Date', 'eval', 'function',
+'hasOwnProperty', 'Infinity', 'isFinite', 'isNaN',
+'isPrototypeOf', 'length', 'Math', 'NaN',
+'name', 'Number', 'Object', 'prototype',
+'String', 'toString', 'undefined', 'valueOf'
+);
+color: @pick(var(--lilac), var(--purple), var(--dark));
+font-size: 2vmax;
+font-family: monospace;
+}
+
+        -->
+
+        <main>
+            <section>Source</section>
+            <section>.horse</section>
+        </main>
+        <!--             :doodle {
+            @grid: 20;
+            @size: 100vmax 100vmax;
+            }
+            :container {
+            background: var(--black);
+            overflow: hidden;
+
+            }
+            background: @pick(var(--lilac), var(--purple), var(--dark)) ;
+            transform: scale( @rand(.2, .9) ) rotate(@r(30deg));
+
+            :after {
+            content: @i();
+            font-size: 1rem;
+            color: var(--dark);
+            }
+ -->
+    </body>
+
 </html>
