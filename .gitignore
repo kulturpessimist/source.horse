@@ -2,3 +2,5 @@
 node_modules
 build
 _Material
+/.DS_Store
+.DS_Store

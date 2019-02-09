@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.4.9/css-doodle.min.js"></script>
+        <style>
+            :root {
+                --highlight: #1BF9D8;
+                --lilac: #5900B0;
+                --purple: #3D0078;
+                --dark: #25064C;
+                --black: #15032B;
+            }
+
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            css-doodle {
+                width: 100vmax;
+                height: 100vmax;
+                overflow: hidden;
+
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <css-doodle>
+            :doodle {
+            @grid: 20 / 100vmax;
+            background: #0a0c27;
+            font-family: sans-serif;
+            } transform: scale( @rand(.2, .9) ) rotate(@r(30deg));
+
+            :after {
+            content: \@hex(@rand(0x169b, 0x169c));
+            color: @pick(var(--lilac), var(--purple), var(--dark)) ;
+            font-size: 5vmax;
+            }
+        </css-doodle>
+
+        <!--             :doodle {
+            @grid: 20;
+            @size: 100vmax 100vmax;
+            }
+            :container {
+            background: var(--black);
+            overflow: hidden;
+
+            }
+            background: @pick(var(--lilac), var(--purple), var(--dark)) ;
+            transform: scale( @rand(.2, .9) ) rotate(@r(30deg));
+
+            :after {
+            content: @i();
+            font-size: 1rem;
+            color: var(--dark);
+            }
+ -->
+    </body>
+
+</html>
