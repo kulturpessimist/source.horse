@@ -66,11 +66,17 @@
                 color: var(--font);
                 content: \@hex(@rand(0x0021, 0x007e));
             }
-
+            @keyframes fading {
+                  0% { opacity: 1; }
+                 10% { opacity: 0.33; }
+                 20% { opacity: 1; }
+                100% { opacity: 1; }
+            }
             /*Name*/
             @nth(134) {
                 background: var(--font);
-               :hover{ --mod: 0; }
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
+                :hover{ --mod: 0; }
                 :after{ 
                     content: 'S'; 
                     font-weight: 700;
@@ -79,7 +85,8 @@
             }
             @nth(135) {
                 background: var(--font);
-               :hover{ --mod: 0; }
+                animation: fading @rand(5s, 10s) infinite @rand(30s, 100s);
+                :hover{ --mod: 0; }
                 :after{
                     content: 'O';
                     font-weight: 700;
@@ -88,6 +95,7 @@
             } 
             @nth(136) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: 'U';
@@ -97,6 +105,7 @@
             } 
             @nth(137) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: 'R';
@@ -106,7 +115,8 @@
             } 
             @nth(138) {
                 background: var(--font);
-               :hover{ --mod: 0; }
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
+                :hover{ --mod: 0; }
                 :after{
                     content: 'C';
                     font-weight: 700;
@@ -115,7 +125,8 @@
             } 
             @nth(139) {
                 background: var(--font);
-               :hover{ --mod: 0; }
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
+                :hover{ --mod: 0; }
                 :after{
                     content: 'E';
                     font-weight: 700;
@@ -125,6 +136,7 @@
 
             @nth(154) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: '.';
@@ -134,6 +146,7 @@
             }
             @nth(155) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: 'H';
@@ -143,6 +156,7 @@
             } 
             @nth(156) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: 'O';
@@ -152,6 +166,7 @@
             } 
             @nth(157) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: 'R';
@@ -161,6 +176,7 @@
             }
             @nth(158) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: 'S';
@@ -170,6 +186,7 @@
             }
             @nth(159) {
                 background: var(--font);
+                animation: fading @rand(5s, 10s) infinite @rand(2s, 20s);
                 :hover{ --mod: 0; }
                 :after{
                     content: 'E';

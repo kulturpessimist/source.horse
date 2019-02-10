@@ -1,36 +1,17 @@
-[
-	{
-		"from":		"",
-		"to":		"index.html"
-	},
-
-	{
-		"from":		"css/*",
-		"to":		"css/*"
+[{
+		"from": "",
+		"to": "index.html"
 	},
 	{
-		"from":		"img/*",
-		"to":		"img/*"
-	},
+		"from": "js/*",
+		"to": "js/*"
+	}, 
 	{
-		"from":		"js/*",
-		"to":		"js/*"
-	},
-
+		"from": "font/*",
+		"to": "font/*"
+	}, 
 	{
-		"from":		"favicon.ico",
-		"to":		"img/favicon.ico"
-	},
-	{
-		"from":		"font/*",
-		"to":		"font/*"
-	},
-	{
-		"from":		"fonts/*",
-		"to":		"font/*"
-	},
-	{
-		"from":		"/*",
-		"to":		"/index.html"
+		"from": "/*",
+		"to": "/*"
 	}
 ]
