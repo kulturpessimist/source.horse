@@ -5,19 +5,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>source.horse</title>
+        <title>SOURCE.HORSE</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <script src="js/webcomponents-bundle.js"></script>
         <script src="js/css-doodle.min.js"></script>
-        <link rel="stylesheet" type="text/css" media="all" href="font/fonts.css">
-        <link href="https://fonts.googleapis.com/css?family=Fira+Mono|IBM+Plex+Mono|Source+Code+Pro|VT323" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" media="all" href="font/fira_code.css" >
 
         <style>
             :root {
-                --highlight: #1BF9D8;
-                --lilac: #5900B0;
-                --purple: #3D0078;
-                --dark: #25064C;
-                --black: #15032B;
+                --font: #0E1A3D;
+                --darker: #000000;
+                --bright: #FF4338;
+                --red: #BF2300;
+                --orange: #FE6942;
+                --font-size: 42px;
             }
 
             html,
@@ -26,7 +29,7 @@
                 margin: 0;
                 overflow: hidden;
                 font-size: 18px;
-
+                background-color: var(--orange);
             }
 
             css-doodle {
@@ -35,242 +38,148 @@
                 overflow: hidden;
                 z-index: 1;
             }
-
-            main {
-                position: absolute;
-                top: 0px;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                z-index: 2;
-                color: orangered;
-                pointer-events: none;
-
-                display: none;
-            }
-
-            section:first-of-type {
-                font-family: 'ZillaSlab-Medium';
-                font-size: 6rem;
-                letter-spacing: -0.4rem;
-            }
-
-            section:last-of-type {
-                font-family: 'ZillaSlabHighlight-Bold';
-                font-size: 6rem;
-                letter-spacing: -0.1rem;
-            }
-
-            pre {
-                margin: 0;
-                padding: 0;
-                position: absolute;
-                top: 0px;
-                display: inline;
-            }
-
         </style>
     </head>
 
     <body>
-        <css-doodle>
+        <css-doodle onclick="this.update()">
             :doodle {
-                --font-size: 3rem;
-                --start: 72;
-                @grid: 16;
+                @grid: 20;
                 @size: 100vmax;
-                grid-gap: 1px;
-                background: var(--black);
-                font-family: 'VT323', monospace;
-                font-size: 2.5rem;
+                grid-gap: 0px;
+                background: var(--orange);
+                font-family: 'Fira Code', monospace;
+                font-size: var(--font-size);
+            }
+            --mod:0;
+            will-change: transform;
+            background: var(--orange);
+            transition: .5s cubic-bezier(.175, .885, .32, 1.275);
+            transition-delay: @rand(300ms);
+            transform: rotate( calc( @r(-33deg, 33deg) * var(--mod) ) )
+                translate( calc( @r(-4px, 4px) * var(--mod) ), calc( @r(-4px, 4px) * var(--mod) ) );
+            
+            :hover{
+                --mod: 1;
+            }
+            :after{ 
+                color: var(--font);
+                content: \@hex(@rand(0x0021, 0x007e));
             }
 
-            background: var(--dark);
-            :after{
-                content: @index();
-                color: var(--purple);
-            }
-
-
-            /*Logo*/
-            @nth(73) {
-                background: var(--purple); 
+            /*Name*/
+            @nth(134) {
+                background: var(--font);
+               :hover{ --mod: 0; }
                 :after{ 
                     content: 'S'; 
-                    color: var(--lilac); 
-                    font-size: var(--font-size);
+                    font-weight: 700;
+                    color: var(--orange);
                 } 
             }
-            @nth(74) {
-                background: var(--purple);
+            @nth(135) {
+                background: var(--font);
+               :hover{ --mod: 0; }
                 :after{
-                    content: 'o';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'O';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             } 
-            @nth(75) {
-                background: var(--purple);
+            @nth(136) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
-                    content: 'u';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'U';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             } 
-            @nth(76) {
-                background: var(--purple);
+            @nth(137) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
-                    content: 'r';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'R';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             } 
-            @nth(77) {
-                background: var(--purple);
+            @nth(138) {
+                background: var(--font);
+               :hover{ --mod: 0; }
                 :after{
-                    content: 'c';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'C';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             } 
-            @nth(78) {
-                background: var(--purple);
+            @nth(139) {
+                background: var(--font);
+               :hover{ --mod: 0; }
                 :after{
-                    content: 'e';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'E';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             }
 
-            @nth(89) {
-                background: var(--purple);
+            @nth(154) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
                     content: '.';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             }
-            @nth(90) {
-                background: var(--purple);
+            @nth(155) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
-                    content: 'h';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'H';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             } 
-            @nth(91) {
-                background: var(--purple);
+            @nth(156) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
-                    content: 'o';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'O';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             } 
-            @nth(92) {
-                background: var(--purple);
+            @nth(157) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
-                    content: 'r';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'R';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             }
-            @nth(93) {
-                background: var(--purple);
+            @nth(158) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
-                    content: 's';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'S';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             }
-            @nth(94) {
-                background: var(--purple);
+            @nth(159) {
+                background: var(--font);
+                :hover{ --mod: 0; }
                 :after{
-                    content: 'e';
-                    color: var(--lilac);
-                    font-size: var(--font-size);
+                    content: 'E';
+                    font-weight: 700;
+                    color: var(--orange);
                 }
             }
             
         </css-doodle>
-        <!--   
-:doodle {
-@grid: 20 / 100vmax;
-background: #0a0c27;
-font-family: sans-serif;
-}
---s: 0.1;
-background: #f0f;
 
-:hover {
-background: white;
---s:1;
-}
-
-
-transition: .5s cubic-bezier(.175, .885, .32, 1.275);
-transition-delay: @rand(500ms);
-
-transform: scale( @rand(.2, .9) ) rotate( calc( @r(-33deg) * var(--s) ) ) translateY(calc(var(--s) *
-100%));
-
-
-:after {
-content: @pick(
-'abstract', 'arguments', 'await', 'boolean'
-'break', 'byte', 'case', 'catch',
-'char', 'class', 'const', 'continue',
-'debugger', 'default', 'delete', 'do',
-'double', 'else', 'enum', 'eval',
-'export', 'extends', 'false', 'final',
-'finally', 'float', 'for', 'function',
-'goto', 'if', 'implements', 'import',
-'in', 'instanceof', 'int', 'interface',
-'let', 'long', 'native', 'new',
-'null', 'package', 'private', 'protected',
-'public', 'return', 'short', 'static',
-'super', 'switch', 'synchronized', 'this',
-'throw', 'throws', 'transient', 'true',
-'try', 'typeof', 'var', 'void',
-'volatile', 'while', 'with', 'yield',
-'Array', 'Date', 'eval', 'function',
-'hasOwnProperty', 'Infinity', 'isFinite', 'isNaN',
-'isPrototypeOf', 'length', 'Math', 'NaN',
-'name', 'Number', 'Object', 'prototype',
-'String', 'toString', 'undefined', 'valueOf'
-);
-color: @pick(var(--lilac), var(--purple), var(--dark));
-font-size: 2vmax;
-font-family: monospace;
-}
-
-        -->
-
-        <main>
-            <section>Source</section>
-            <section>.horse</section>
-        </main>
-        <!--             :doodle {
-            @grid: 20;
-            @size: 100vmax 100vmax;
-            }
-            :container {
-            background: var(--black);
-            overflow: hidden;
-
-            }
-            background: @pick(var(--lilac), var(--purple), var(--dark)) ;
-            transform: scale( @rand(.2, .9) ) rotate(@r(30deg));
-
-            :after {
-            content: @i();
-            font-size: 1rem;
-            color: var(--dark);
-            }
- -->
     </body>
 
 </html>

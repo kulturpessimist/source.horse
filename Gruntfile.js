@@ -22,12 +22,12 @@ module.exports = function(grunt) {
 		},
 		'couch-push': {
 			options: {
-			  user: "<%= cfg.cloudant.username %>",
-			  pass: "<%= cfg.cloudant.password %>",
+			  user: "<%= cfg.couchdb.username %>",
+			  pass: "<%= cfg.couchdb.password %>",
 			},
-			cloudant: {
+			couchdb: {
 				files: {
-					'<%= cfg.cloudant.url %>/<%= cfg.cloudant.couch %>': 'build/website.json'
+					'<%= cfg.couchdb.url %>/<%= cfg.couchdb.couch %>': 'build/website.json'
 				}
 			}
 		}
