@@ -1,10 +1,14 @@
 source.horse
 ===========
 
-Last update 10.02.2019
+Last update 26.08.2020
 
 Changelog
 =========
+
+26.08.2020
+
+* Refactored for netlify
 
 10.02.2019
 
